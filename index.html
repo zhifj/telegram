@@ -123,17 +123,24 @@ h1{font-size:2.1rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
 
 /* Platform list — like telegram.org/apps */
 .platforms{padding:8px 0 26px}
-.plist{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.pitem{
-  border:1px solid var(--line);border-radius:14px;padding:22px 18px;text-align:center;
-  transition:box-shadow .15s ease,border-color .15s ease;color:var(--ink);
-}
-.pitem:hover{box-shadow:0 6px 20px rgba(35,46,60,.08);border-color:#CFE9F9;text-decoration:none}
-.pitem .ico{height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
-.pitem .ico svg{width:42px;height:42px;display:block}
-.pitem .t{font-weight:600;font-size:1rem}
-.pitem .d{font-size:.83rem;color:var(--gray);margin-top:4px}
-.pitem .go{display:inline-block;margin-top:12px;color:var(--blue-dark);font-weight:600;font-size:.9rem}
+.dl_apps{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:10px 26px}
+.dl_app{display:block;text-align:center;color:var(--ink);border-radius:16px;padding:12px 10px 16px}
+.dl_app:hover,.dl_desktop:hover{background:#F3F8FC;text-decoration:none}
+.dl_app img{display:block;margin:0 auto;height:220px;max-width:100%;width:auto;object-fit:contain}
+.dl_desktop{display:block;text-align:center;color:var(--ink);border-radius:16px;padding:14px 10px 18px;margin:14px auto 0;max-width:640px}
+.dl_desktop img{display:block;margin:0 auto;width:100%;height:auto}
+.dl_name{display:block;margin-top:12px;font-size:1.05rem;font-weight:500}
+.dl_name b{font-weight:700}
+.dl_ico{display:inline-block;width:20px;height:22px;vertical-align:-4px;margin-right:8px;background:50% 50%/contain no-repeat}
+.dl_ico_android{background-image:url(img/SiteIconAndroid.svg)}
+.dl_ico_ios{background-image:url(img/SiteIconApple.svg)}
+.dl_sub{display:block;margin-top:3px;font-size:.85rem;color:var(--gray)}
+.dl_more{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.dl_more_btn{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--blue);color:#fff;font-weight:600;font-size:.92rem}
+.dl_more_btn:hover{background:var(--blue-dark);text-decoration:none}
+.dl_more_btn.ghost{background:#fff;color:var(--blue-dark);border:1px solid var(--line)}
+.dl_more_btn.ghost:hover{background:#F3F8FC;border-color:#CFE9F9}
+@media (max-width:520px){.dl_app img{height:172px}.dl_name{font-size:.98rem}}
 
 /* Content sections — clean doc style */
 main section{padding:30px 0 4px}
@@ -214,49 +221,26 @@ footer a{color:#9AA0A6;text-decoration:underline}
 
 <section class="platforms" id="download">
 <h2>选择你的设备，获取官方安装包</h2>
-<div class="plist">
-  <a class="pitem" href="https://telegram.org/android" rel="noopener" target="_blank">
-    <div class="ico">
-      <svg viewBox="0 0 24 24" fill="#3DDC84" aria-hidden="true">
-        <path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.14-.52.38.38 0 0 0-.52.14l-1.86 3.22a11.43 11.43 0 0 0-9.84 0L5.22 5.92a.38.38 0 0 0-.52-.14.38.38 0 0 0-.14.52L6.4 9.48A10.81 10.81 0 0 0 .96 17.6h22.08a10.81 10.81 0 0 0-5.44-8.12zM7 14.75a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm10 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/>
-      </svg>
-    </div>
-    <div class="t">Telegram for Android</div>
-    <div class="d">官网APK / Google Play</div>
-    <span class="go">前往下载 ›</span>
+<div class="dl_apps">
+  <a class="dl_app" href="https://telegram.org/android" rel="noopener" target="_blank">
+    <img src="img/SiteAndroid.webp" srcset="img/SiteAndroid_2x.webp 2x" width="290" height="270" alt="Telegram for Android" loading="lazy">
+    <span class="dl_name"><i class="dl_ico dl_ico_android"></i>Telegram for <b>Android</b></span>
+    <span class="dl_sub">官网 APK / Google Play</span>
   </a>
-  <a class="pitem" href="https://apps.apple.com/app/telegram-messenger/id686449807" rel="noopener" target="_blank">
-    <div class="ico">
-      <svg viewBox="0 0 24 24" fill="#232E3C" aria-hidden="true">
-        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-      </svg>
-    </div>
-    <div class="t">Telegram for iPhone / iPad</div>
-    <div class="d">App Store 官方版</div>
-    <span class="go">前往下载 ›</span>
+  <a class="dl_app" href="https://apps.apple.com/app/telegram-messenger/id686449807" rel="noopener" target="_blank">
+    <img src="img/SiteiOS.webp" srcset="img/SiteiOS_2x.webp 2x" width="442" height="270" alt="Telegram for iPhone / iPad" loading="lazy">
+    <span class="dl_name"><i class="dl_ico dl_ico_ios"></i>Telegram for <b>iPhone / iPad</b></span>
+    <span class="dl_sub">App Store 官方版</span>
   </a>
-  <a class="pitem" href="https://desktop.telegram.org" rel="noopener" target="_blank">
-    <div class="ico">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#229ED9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="3.5" width="20" height="14" rx="2"/>
-        <path d="M8 21h8M12 17.5V21"/>
-      </svg>
-    </div>
-    <div class="t">Telegram for PC / Mac / Linux</div>
-    <div class="d">桌面客户端 Desktop 版</div>
-    <span class="go">前往下载 ›</span>
-  </a>
-  <a class="pitem" href="https://web.telegram.org" rel="noopener" target="_blank">
-    <div class="ico">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#229ED9" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="9.5"/>
-        <path d="M2.5 12h19M12 2.5c2.5 2.6 3.9 6 3.9 9.5s-1.4 6.9-3.9 9.5c-2.5-2.6-3.9-6-3.9-9.5s1.4-6.9 3.9-9.5z"/>
-      </svg>
-    </div>
-    <div class="t">Telegram Web 网页版</div>
-    <div class="d">免安装，浏览器直接使用</div>
-    <span class="go">立即打开 ›</span>
-  </a>
+</div>
+<a class="dl_desktop" href="https://desktop.telegram.org" rel="noopener" target="_blank">
+  <img src="img/SiteDesktop.webp" srcset="img/SiteDesktop_2x.webp 2x" width="1246" height="260" alt="Telegram for Windows / macOS / Linux" loading="lazy">
+  <span class="dl_name">Telegram for <b>Windows / macOS / Linux</b></span>
+  <span class="dl_sub">桌面客户端 Desktop 版</span>
+</a>
+<div class="dl_more">
+  <a class="dl_more_btn" href="https://web.telegram.org" rel="noopener" target="_blank">Telegram Web 网页版 ›</a>
+  <a class="dl_more_btn ghost" href="https://telegram.org/apps" rel="noopener" target="_blank">更多平台应用 ›</a>
 </div>
 <div class="tipbox"><b>如何确认是官网：</b>Telegram 唯一官方域名是 <strong>telegram.org</strong>（含 desktop.telegram.org、web.telegram.org 等子域名）。本页所有按钮均直达官方地址，下载前可在浏览器地址栏自行核对域名。</div>
 </section>
